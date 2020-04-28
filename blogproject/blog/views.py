@@ -15,7 +15,6 @@ from django.views.generic import (TemplateView,
                                   )
 # Create your views here.
 
-
 class AboutView(TemplateView):
     template_name = 'about.html'
 
@@ -73,7 +72,7 @@ def add_comment_to_post(request, pk):
             return redirect('post_detail',pk=post.pk)
     else:
         form = CommentForm()
-    return  render(request,'blog/comment_form.html',{'form':form})
+    return render(request,'blog/comment_form.html',{'form':form})
 
 @login_required
 def comment_approve(request,pk):
@@ -87,10 +86,10 @@ def comment_remove(request,pk):
     comment = get_object_or_404(Comment, pk=pk)
     post_pk = comment.post.pk
     comment.delete()
-    return redirect('post_details',pk=post_pk)
+    return redirect('post_detail',pk=post_pk)
 
 @login_required
 def post_publish(request,pk):
     post = get_object_or_404(Post,pk=pk)
     post.publish()
-    return redirect('post_details',pk=pk)
+    return redirect('post_detail',pk=pk)

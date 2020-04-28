@@ -8,6 +8,12 @@
   text-align: center;
 }
 
+.postlisttitle{
+  font-family: 'Lobster', sans-serif;
+  font-size: 1.5em;
+  text-align: left;
+}
+
 .posttitle{
   font-family: 'Lobster', sans-serif;
   font-size: 3em;
